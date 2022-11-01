@@ -13,19 +13,17 @@ def REGRESION(x=list,y=list):
         sumx2=sum(x2)
         m=((len(x)*(sumxy))-(sumx*sumy)/((len(x)*sumx2)-(sumx*sumx)))
         b=promy-m*promx
-        print(f"\n\nLa ecuación de la recta de la regresión lineal es y = {m}x+({b})\n\n")
+        print(f"La ecuación de la recta de la regresión lineal es y = {m}x+({b})")
         return [m,b]
 from math import sqrt
 import os
 import numpy as np
 isActive=True
-headers=["MÍNIMOS CUADRADOS","MODELO EXPONENCIAL","ECUACIONES DE POTENCIA/RAZONES DE CRECIMIENTO","DESVIACION/ERROR/COEFICIENTE","SALIR"]
+print("Elija su opcion")
+print("1-MÍNIMOS CUADRADOS 2-MODELO EXPONENCIAL 3-ECUACIONES DE POTENCIA O RAZONES DE CRECIMIENTO 4- DESVIACION,ERROR Y COEFICIENTE 5-SALIR")
 while isActive:
     os.system('pause')
-    # os.system('cls')
     print("REGRESIONES")
-    for i in range(len(headers)):
-        print(f"{i+1} - {headers[i]}")
     op=int(input(""))
     if op==1:
         x=[1,2,3,4,5,6,7,8]
@@ -63,11 +61,11 @@ while isActive:
         for i in range(len(x)):
             Sr+=(y[i]-b-m*x[i])**2
             print(i)
-        syx=sqrt((Sr)/(len(x)-2))
+        sy_x=sqrt((Sr)/(len(x)-2))
         print(Sr)
         print(b, m)
         r=sqrt(abs((St-Sr))/(St))*100
-        print(f"La ecuación de la recta de la regresión lineal es y = {m}x+({b})")
-        print(f"La desviación estándar es {Sy}, el error estándar de la estimación es {syx}, y el coeficiente de correlación es {r}")
+        print(f"La ecuación de la recta en la regresión lineal es y = {m}x+({b})")
+        print(f"La desviación estándar es {Sy}, el error estándar es {sy_x}, y el coeficiente de correlación es {r}")
     elif op==5:
         isActive=False
